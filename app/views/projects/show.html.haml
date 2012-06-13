@@ -1,0 +1,26 @@
+%h1= @project.name
+
+%h2 Tasks
+%ul#tasks
+  %li.header
+    .name Name
+    .start_date Start Date
+    .end_date End Date
+  - @project.tasks.each do |task|
+    %li
+      .name= task.name
+      .start_date= task.start_date
+      .end_date= task.end_date
+
+= form_for [@project, @task] do |f|
+  .stacked
+    = f.label :name
+    = f.text_field :name
+  .stacked
+    = f.label :start_date
+    = f.text_field :start_date
+  .stacked
+    = f.label :end_date
+    = f.text_field :end_date
+  .stacked
+    = f.submit

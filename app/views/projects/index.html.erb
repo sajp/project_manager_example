@@ -1,7 +1,10 @@
 <h1>Projects</h1>
 <ul>
   <% @projects.each do |project| %>
-    <li><%= project.name %></li>
+    <li>
+      <%= link_to project.name, project %>
+      <%= link_to "delete", project, :method => :delete %>
+    </li>
   <% end%>
 </ul>
 <%= link_to "New Project", new_project_path %>

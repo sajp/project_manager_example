@@ -1,4 +1,6 @@
 ProjectManager::Application.routes.draw do
-  resources :projects, :except => [:destroy]
+  resources :projects do
+    resources :tasks
+  end
   root :to => "projects#index"
 end
