@@ -6,7 +6,7 @@
     .name Name
     .start_date Start Date
     .end_date End Date
-  - @project.tasks.each do |task|
+  - @project.tasks.select(&:persisted?).each do |task|
     %li
       .name= task.name
       .start_date= task.start_date
