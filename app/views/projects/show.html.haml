@@ -16,11 +16,14 @@
   .stacked
     = f.label :name
     = f.text_field :name
+    = f.object.errors[:name].first
   .stacked
     = f.label :start_date
     = f.text_field :start_date
+    = f.object.errors[:name].first
   .stacked
     = f.label :end_date
     = f.text_field :end_date
+    = f.object.errors[:name].first
   .stacked
     = f.submit
