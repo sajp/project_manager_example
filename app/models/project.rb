@@ -10,6 +10,10 @@ class Project < ActiveRecord::Base
     tasks.create attrs
   end
 
+  def delete_task id
+    tasks.find(id).delete
+  end
+
   def delete!
     self.deleted = true
     save!

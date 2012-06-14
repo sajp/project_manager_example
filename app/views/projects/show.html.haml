@@ -6,11 +6,14 @@
     .name Name
     .start_date Start Date
     .end_date End Date
+    .actions
   - @project.tasks.select(&:persisted?).each do |task|
     %li
       .name= task.name
       .start_date= task.start_date
       .end_date= task.end_date
+      .actions
+        = link_to "delete", project_task_path(task.project, task), :method => :delete
 
 = form_for [@project, @task] do |f|
   .stacked

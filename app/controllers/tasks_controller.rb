@@ -10,4 +10,10 @@ class TasksController < ApplicationController
     end
   end
 
+  def destroy
+    @project = Project.find params[:project_id]
+    @project.delete_task params[:id]
+    redirect_to @project
+  end
+
 end
