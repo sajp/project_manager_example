@@ -4,4 +4,5 @@ class Task < ActiveRecord::Base
   belongs_to :project
 
   validates_presence_of :name, :start_date, :end_date
+  validates_format_of :start_date, :end_date, :with => /\d{4}-\d{2}-\d{2}/
 end
