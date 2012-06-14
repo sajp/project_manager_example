@@ -3,8 +3,8 @@ class Task < ActiveRecord::Base
 
   belongs_to :project
 
-  validates_presence_of :name, :start_date, :end_date
-  validates_format_of :start_date, :end_date, :with => /\d{4}-\d{2}-\d{2}/
+  validates_presence_of :name
+  validates_presence_of :start_date, :end_date, :message => "please enter a valid date(yyyy-mm-dd)"
 
   default_scope where("state IS NOT 'deleted'")
 
@@ -12,4 +12,5 @@ class Task < ActiveRecord::Base
     self.state = "deleted"
     save!
   end
+
 end

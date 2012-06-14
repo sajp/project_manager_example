@@ -1,7 +1,10 @@
 %h1= @project.name
 
 %h2 Tasks
-%ul#tasks
+
+#tasks
+
+-#%ul#tasks
   %li.header
     .name Name
     .start_date Start Date
@@ -30,3 +33,7 @@
     = display_errors(f.object.errors[:end_date])
   .stacked
     = f.submit
+
+:javascript
+  var PM = {}
+  PM.current_project_id = #{@project.id}

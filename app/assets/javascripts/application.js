@@ -12,4 +12,5 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require extjs-4.1.0/ext-all
 //= require_tree .

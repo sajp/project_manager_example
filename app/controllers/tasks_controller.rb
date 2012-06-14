@@ -1,7 +1,10 @@
 class TasksController < ApplicationController
+  before_filter :find_project
+
+  def index
+  end
 
   def create
-    @project = Project.find params[:project_id]
     @task = @project.add_task params[:task]
     if @task.errors.empty?
       redirect_to @project, :notice => "Successfully created task"
@@ -11,9 +14,18 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    @project = Project.find params[:project_id]
     @project.delete_task params[:id]
-    redirect_to @project
+    respond_to do |format|
+      format.html { redirect_to @project }
+      format.json { render :json => {success: true} }
+    end
   end
+
+  private
+
+  def find_project
+    @project = Project.find params[:project_id]
+  end
+
 
 end
